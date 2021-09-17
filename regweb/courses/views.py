@@ -6,11 +6,13 @@ from django import forms
 
 
 # Create your views here.
-from .models import Course
+from .models import *
+
 
 def index(request):
-    return render(request, "courses/index.html",{
-        "courses": Course.objects.all()
+    return render(request, "courses/index.html", {
+        "courses": Course.objects.all(),
+
     })
 
 
@@ -28,8 +30,24 @@ def book(request, course_id):
 
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("users:login"))
-
     coursed = get_object_or_404(Course, pk=course_id)
     if request.user not in coursed.student.all():
         coursed.student.add(request.user)
-    return HttpResponseRedirect(reverse("courses:courses",args=[course_id]))
+    return HttpResponseRedirect(reverse("courses:course",args=[course_id]))
+
+def remove(request, course_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("users:login"))
+
+    coursed = get_object_or_404(Course, pk=course_id)
+    students = coursed.student.all()
+    if request.user in coursed.student.all():
+        coursed.student.remove(request.user)
+    return HttpResponseRedirect(reverse("courses:index"))
+
+def studentcourse(request, course_id):
+    coursed = get_object_or_404(Course, pk=course_id)
+    return render(request, "courses/studentcourse.html",{
+        "coursest": request.user in coursed.student.all(),
+        "courses": Course.objects.all(),
+    })

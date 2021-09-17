@@ -10,7 +10,11 @@ class Course (models.Model):
     quota = models.IntegerField()
     student = models.ManyToManyField(User, blank=True,related_name = "user")
     status = models.BooleanField(default=True)
+    
 
     def __str__(self):
-        return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:{self.status}"
-
+        if self.quota == self.student.all().count :
+            return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[CLOSE]"
+        return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[OPEN]"
+            
+            

@@ -1,16 +1,20 @@
 {% extends 'courses/layout.html' %}
 
+
 {% block body %}
  <h1>Course List</h1>
     <ul>
 
-        {% for coureq in courses %}
-            {% if coureq.quota > 0 %}
+        {% for courseq in courses %}
+            {% if courseq.status == True %}
 
-                <li>{{coureq}}</li>
+                <li><a href = "{% url 'courses:course' courseq.id %}">{{ courseq }}</a></li>
 
             {% endif %}
         {% endfor %}
+
+
+
 
     </ul>
 {% endblock %}

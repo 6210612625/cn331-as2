@@ -20,7 +20,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("user:index"))
+            return HttpResponseRedirect(reverse("users:index"))
         
         else:
             return render(request, "users/login.html", {
@@ -33,5 +33,8 @@ def logout_view(request):
     logout(request)
     return render(request,"users/login.html",{
         "message" : "Logged out."})
+
+
+    
 
 # Create your views here.

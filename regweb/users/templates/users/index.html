@@ -9,6 +9,7 @@
         <li>Email: {{ request.user.email }}</li>
     </ul>
     
-    <p><a href = "{% url 'users:logout' %}">Logout</a></p>
+    <p><a href="{% url 'courses:studentcourse' %}">your course</a></p>
+    <p><a href="{% url 'users:logout' %}">Logout</a></p>
 
 {% endblock %}
