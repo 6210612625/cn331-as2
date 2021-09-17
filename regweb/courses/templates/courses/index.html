@@ -1,0 +1,16 @@
+{% extends 'courses/layout.html' %}
+
+{% block body %}
+ <h1>Course List</h1>
+    <ul>
+
+        {% for coureq in courses %}
+            {% if coureq.quota > 0 %}
+
+                <li>{{coureq}}</li>
+
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+{% endblock %}

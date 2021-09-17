@@ -1,0 +1,38 @@
+{% extends "courses/layout.html" %}
+
+{% block body %}
+
+    <h1>Courses {{ coursed.code }}</h1>
+    <ul>
+        <li>COURSE ID : {{ coursed.code }}</li>
+        <li>COURSE NAME : {{ coursed.name }}</li>
+        <li>COURSE SEMESTER : {{ coursed.semester }}</li>
+        <li>COURSE YEAR: {{ coursed.year }}</li>
+        <li>COURSE QOUTA : {{ coursed.quota }}</li>
+        {% if coursed.status == True %}
+            <li>COURSE STATUS :  OPEN </li>
+        {% else %}
+            <li>COURSE STATUS :  CLOSE </li>
+        {% endif %}
+            
+
+    </ul>
+
+    <h1>Registant</h1>
+
+    <ul>
+        {% for stu in students %}
+            <li>{{stu.firsr_name}} {{stu.last_name}}</li>
+        {% empty %}
+            <li>No registant</li>
+        {% endfor %}
+
+    </ul>
+    
+    
+    
+    <h1><a href = "{% url 'courses:book' coursed.id %}">Book Registrant</a></h1>
+
+    <p><a href="{% url 'courses:index' %}">couse list</a></p>
+
+{% endblock %}
