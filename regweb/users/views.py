@@ -4,8 +4,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-# Create your views here.
 
+from courses.models import *
+# Create your views here.
+from .models import *
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("users:login"))
@@ -34,7 +36,13 @@ def logout_view(request):
     return render(request,"users/login.html",{
         "message" : "Logged out."})
 
-
+def studentcourse(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("users:login"))
+    stucourse = request.user.userses.all()
+    return render(request, "users/studentcourse.html",{
+        "coursest" : stucourse
+    })
+    
     
 
-# Create your views here.

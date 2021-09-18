@@ -9,13 +9,13 @@
         <li>COURSE SEMESTER : {{ coursed.semester }}</li>
         <li>COURSE YEAR: {{ coursed.year }}</li>
         <li>COURSE QOUTA :{{students.count}} /{{ coursed.quota }}</li>
-        {% if coursed.status == True %}
-            <li>COURSE STATUS :  OPEN </li>
-        {% else %}
+        {% if students.count == coursed.quota %}
             <li>COURSE STATUS :  CLOSE </li>
+        {% else %}
+            <li>COURSE STATUS :  OPEN </li>
         {% endif %}
         <li></li>
-            
+
 
     </ul>
 
@@ -29,13 +29,15 @@
         {% endfor %}
 
     </ul>
-    
-    
-    
-    <h1><a href = "{% url 'courses:book' coursed.id %}">Book Registrant</a></h1>
+
+
+    {% if students.count < coursed.quota %}
+        <h1><a href = "{% url 'courses:book' coursed.id %}">Book Registrant</a></h1>
+    {% endif %}
+
     <h1><a href = "{% url 'courses:remove' coursed.id %}">remove Registrant</a></h1>
     <p><a href = "{% url 'courses:course' coursed.id %}">Couusy</a></p>
-    
+
     <p><a href="{% url 'courses:index' %}">couse list</a></p>
 
 {% endblock %}

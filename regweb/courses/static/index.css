@@ -1,0 +1,40 @@
+  .rightcolumn  {
+     top: 273px;
+     left: 226px;
+     width: 687px;
+     height: 90px;
+     background: #FFFFFF 0% 0% no-repeat padding-box;
+     box-shadow: 0px 6px 10px #0000001C;
+     border-radius: 28px;
+     opacity: 1;
+    }    
+
+   h1 {
+    top: 155px;
+    left: 226px;
+    width: 164px;
+    height: 73px;
+    text-align: left;
+    font: normal normal bold 55px/73px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+    }
+   .leftcolumn {
+        top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 1080px;
+    background: black 0% 0% no-repeat padding-box;
+    opacity: 1;
+        }
+   li {
+        top: 269px;
+    left: 226px;
+    width: 510px;
+    height: 660px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #0000001C;
+    border-radius: 28px;
+    opacity: 1;
+    }

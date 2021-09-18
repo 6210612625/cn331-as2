@@ -8,13 +8,12 @@ class Course (models.Model):
     semester = models.IntegerField()
     year = models.IntegerField()
     quota = models.IntegerField()
-    student = models.ManyToManyField(User, blank=True,related_name = "user")
+    student = models.ManyToManyField(User, blank=True,related_name = "userses")
     status = models.BooleanField(default=True)
-    
+
 
     def __str__(self):
-        if self.quota == self.student.all().count :
+        if (self.quota == self.student.all().count() ) or (self.status == False):
             return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[CLOSE]"
         return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[OPEN]"
-            
-            
+

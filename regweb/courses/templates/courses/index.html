@@ -1,9 +1,12 @@
 {% extends 'courses/layout.html' %}
-
+{% load static %}
 
 {% block body %}
- <h1>Course List</h1>
-    <ul>
+<link rel="stylesheet" type="text/css" href="{% static 'index.css'%}">
+<div class="leftcolumn"></div><div class="back"></div>
+
+ <h1>COURSE</h1>
+   <dev class ="rightcolumn"> <ul>
 
         {% for courseq in courses %}
             {% if courseq.status == True %}
@@ -17,4 +20,5 @@
 
 
     </ul>
+    </dev>
 {% endblock %}

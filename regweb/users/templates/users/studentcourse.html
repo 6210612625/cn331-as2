@@ -1,11 +1,11 @@
-{% extends 'courses/layout.html' %}
+{% extends 'users/layout.html' %}
 
 {% block body %}
  <h1>Your Course </h1>
     <ul>
         {%for cou in coursest %}
             <li>{{cou}}</li>
-        {%endfor
+        {%endfor%}
 
     </ul>
 {% endblock %}
