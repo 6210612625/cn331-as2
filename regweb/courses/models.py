@@ -14,6 +14,6 @@ class Course (models.Model):
 
     def __str__(self):
         if (self.quota == self.student.all().count() ) or (self.status == False):
-            return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[CLOSE]"
-        return f"{self.id} {self.code} : {self.name}: {self.semester}/{self.year}:{self.quota}:[OPEN]"
+            return f"{self.id}. {self.code} : {self.name} semester: {self.semester}/{self.year} seats:{self.student.all().count()}/{self.quota}:[CLOSE]"
+        return f"{self.id}. {self.code} : {self.name} semester: {self.semester}/{self.year} seats:{self.student.all().count()}/{self.quota}:[OPEN]"
 

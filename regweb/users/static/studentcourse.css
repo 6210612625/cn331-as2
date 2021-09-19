@@ -1,21 +1,20 @@
 
 .row {
-      
-      background-color: rgba(255, 255, 255, 0.4);
+       background-color: rgba(255, 255, 255, 0.4);
       border-radius: 25px;         
       margin : 10px 230px;
       padding : 10px 30px;
       opacity: 1;
-      
+
     }
  h1   {
-    
+
     height: 30px;
     font: normal normal bold 55px/40px Segoe UI;
     letter-spacing: 0px;
-    color: #3E2C34  ;
-    opacity: 1;
-            
+    color: #3E2C34;
+    opacity: 0.5;
+
     }
 p{
     height: 50px;
@@ -25,7 +24,6 @@ p{
     opacity: 1;
     margin : 30px ;
     padding : 20px 20px 20px 20px;
-    
     }
 
 n{  text-decoration: none;
@@ -38,14 +36,13 @@ n{  text-decoration: none;
       text-align: left;
       cursor: pointer;
       outline: none;
-    
+
 }
-.jinny{
+.junny{
     border-radius: 25px;
     border: 4px solid #B86B77 ;
-    padding: 20px; 
-    width: 300px;
-    height: 80px;
+    padding: 20px,20px;
+    width: 600px;
+    height: 66px;
 }
 
- 

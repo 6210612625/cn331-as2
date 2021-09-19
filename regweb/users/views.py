@@ -26,7 +26,7 @@ def login_view(request):
         
         else:
             return render(request, "users/login.html", {
-                "message": "Invalid credential."
+                "message": "Invalid Credential."
             })
     
     return render(request, "users/login.html")
@@ -34,7 +34,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request,"users/login.html",{
-        "message" : "Logged out."})
+        "message" : "Logged Out."})
 
 def studentcourse(request):
     if not request.user.is_authenticated:

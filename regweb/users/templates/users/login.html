@@ -1,16 +1,41 @@
 {% extends "users/layout.html" %}
+{% load static %}
 
 {% block body %}
 
-    {% if message %}
-        {{ message }}
-    {% endif %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'login.css'%}">
+ 
+<body>
     <form action = "{% url 'users:login' %}" method = "post">
         {% csrf_token %}
-        <input type = "text" name = "username" placeholder = "Username">
-        <input type = "password" name = "password" placeholder = "Password">
-        <input type = "submit" value = "Login">
-    </form>
 
+    <div class="center">
+      <h1>Users Login</h1>
+      <form>
+    
+        <div class="inputbox">
+          <input type = "text" name = "username" placeholder = "Username">
+
+        </div>
+    
+        <div class="inputbox">
+          <input type = "password" name = "password" placeholder = "Password">
+        
+        </div>
+    
+        <div class = "invalid">
+            {% if message %}
+            {{ message }}
+            {% endif %}
+        </div>
+    
+        <div class="inputbox">
+          <input type = "submit" value = "Login">
+        </div>
+      
+      </form>
+    </div>
+</body>    
+    
+    
 {% endblock %}

@@ -1,26 +1,69 @@
-{% extends "courses/layout.html" %}
+ {% extends "courses/layout.html" %}
+ {% load static %}
 
 {% block body %}
 
+<html>
+        <head>
+        
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+            <title>CSS Website Layout</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                {% load static %}
+                <link rel="stylesheet" type="text/css" href="{% static 'index.css'%}">
+                <title>Users</title>
+        </head>
+
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'users:index' %}">HOME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{% url 'courses:index' %}">Courses</a>
+        
+        <a class="nav-link" href="{% url 'users:studentcourse'%}">Your Courses</a>
+        <a class="nav-link" href="{% url 'users:logout'%}">Log Out</a>
+        <a class="nav-link disabled">Admin Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class = "space">
     <h1>Courses {{ coursed.code }}</h1>
-    <ul>
-        <li>COURSE ID : {{ coursed.code }}</li>
-        <li>COURSE NAME : {{ coursed.name }}</li>
-        <li>COURSE SEMESTER : {{ coursed.semester }}</li>
-        <li>COURSE YEAR: {{ coursed.year }}</li>
-        <li>COURSE QOUTA :{{students.count}} /{{ coursed.quota }}</li>
+<div class = "block">
+        <p2>COURSE ID : {{ coursed.code }}<br/ ></p2>
+        <p2>COURSE NAME : {{ coursed.name }}<br/ ></p2>
+        <p2>COURSE SEMESTER : {{ coursed.semester }}<br/ ></p2>
+        <p2>COURSE YEAR: {{ coursed.year }}<br/ ></p2>
+        <p2>COURSE QUOTA :{{students.count}} /{{ coursed.quota }}<br/ ></p2>
         {% if students.count == coursed.quota %}
-            <li>COURSE STATUS :  CLOSE </li>
+            <p2>COURSE STATUS :  CLOSE <br/ ></p2>
         {% else %}
-            <li>COURSE STATUS :  OPEN </li>
+            <p2>COURSE STATUS :  OPEN<br/ > </p2>
         {% endif %}
-        <li></li>
+         <p2> </p2>
+         
+        {% if students.count < coursed.quota  %}
+           <a class="btn btn-outline-primary" href="{% url 'courses:book' coursed.id %}" role="button">ENROLL</a>
+        {% endif %}
+        
+        <a class="btn btn-outline-danger" href="{% url 'courses:remove' coursed.id %}" role="button">REMOVE</a>
+    
 
 
-    </ul>
 
-    <h1>Registant</h1>
-
+</div>
+</div>
+<div class = "look">
+    <h2>Student List</h2>
+    <div class = "reblock">
     <ul>
         {% for stu in students %}
             <li>{{stu.first_name}} {{stu.last_name}}</li>
@@ -29,15 +72,13 @@
         {% endfor %}
 
     </ul>
+    </div>
+</div>
+    
+   
 
 
-    {% if students.count < coursed.quota %}
-        <h1><a href = "{% url 'courses:book' coursed.id %}">Book Registrant</a></h1>
-    {% endif %}
 
-    <h1><a href = "{% url 'courses:remove' coursed.id %}">remove Registrant</a></h1>
-    <p><a href = "{% url 'courses:course' coursed.id %}">Couusy</a></p>
-
-    <p><a href="{% url 'courses:index' %}">couse list</a></p>
-
+</body>
 {% endblock %}
+</html>

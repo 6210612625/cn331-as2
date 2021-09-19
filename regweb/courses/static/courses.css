@@ -1,0 +1,82 @@
+
+     p3{
+      text-decoration: none;
+      font-size: 30px;
+      color: #818181;
+      display: block;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+        }
+    a:hover{
+        color: #f1f1f1;
+    }
+
+body {
+ margin:0;
+  padding:0;
+  background: linear-gradient(#B86B77, #C0838C, #CF989F, #D8ABB1, #E0BCBF);
+}
+    p2 {
+        text-align: left;
+    font: normal normal 600 20px/40px Segoe UI;
+    letter-spacing: 0px;
+    color: #5D98F3;
+    }
+    .block {
+        background: #F8F8FA 0% 0% no-repeat padding-box;
+    border-radius: 25px;
+    opacity: 1;
+    margin : 10px 20px;
+      padding : 10px 30px;
+
+    }
+     .space {
+        background: #F8F8FA 0% 0% no-repeat padding-box;
+    border-radius: 25px;
+    opacity: 1;
+    margin : 10px 100px;
+      padding : 10px 30px;
+
+    }
+    h2 {
+
+
+    font: normal normal 600 28px/37px Segoe UI;
+    letter-spacing: 0px;
+    color: #5D98F3;
+    opacity: 1;
+    }
+    .reblock{
+    background: #F8F8FA 0% 0% no-repeat padding-box;
+    border-radius: 20px;
+    opacity: 1;
+    }
+   .look{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #0000001C;
+    border-radius: 28px;
+    opacity: 1;
+        margin : 10px 140px;
+      padding : 10px 70px;
+    }
+    li{
+
+    font: normal normal 600 20px/27px Segoe UI;
+    letter-spacing: 0px;
+    color: #464343;
+    opacity: 1;
+    }
+    .jinny{
+    border-radius: 25px;
+    border: 4px solid #B86B77 ;
+    padding: 20px;
+    width: 700px;
+    height: 80px;
+}
+
+
+
