@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 
 from courses.models import *
@@ -25,13 +26,14 @@ def login_view(request):
             return HttpResponseRedirect(reverse("users:index"))
         
         else:
+            messages.warning(request, "Invalid credential.")
             return render(request, "users/login.html", {
                 "message": "Invalid Credential."
             })
     
     return render(request, "users/login.html")
 
-def logout_view(request):
+def logout_view(request): 
     logout(request)
     return render(request,"users/login.html",{
         "message" : "Logged Out."})
