@@ -5,7 +5,7 @@
 
 <html>
         <head>
-        
+
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
             <title>CSS Website Layout</title>
             <meta charset="utf-8">
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{% url 'courses:index' %}">Courses</a>
-        
+
         <a class="nav-link" href="{% url 'users:studentcourse'%}">Your Courses</a>
         <a class="nav-link" href="{% url 'users:logout'%}">Log Out</a>
         <a class="nav-link disabled">Admin Login</a>
@@ -43,19 +43,19 @@
         <p2>COURSE SEMESTER : {{ coursed.semester }}<br/ ></p2>
         <p2>COURSE YEAR: {{ coursed.year }}<br/ ></p2>
         <p2>COURSE QUOTA :{{students.count}} /{{ coursed.quota }}<br/ ></p2>
-        {% if students.count == coursed.quota %}
+        {% if students.count == coursed.quota or coursed.status == False %}
             <p2>COURSE STATUS :  CLOSE <br/ ></p2>
         {% else %}
             <p2>COURSE STATUS :  OPEN<br/ > </p2>
         {% endif %}
          <p2> </p2>
-         
-        {% if students.count < coursed.quota  %}
+
+        {% if students.count < coursed.quota and coursed.status != False  %}
            <a class="btn btn-outline-primary" href="{% url 'courses:book' coursed.id %}" role="button">ENROLL</a>
         {% endif %}
-        
+
         <a class="btn btn-outline-danger" href="{% url 'courses:remove' coursed.id %}" role="button">REMOVE</a>
-    
+
 
 
 
@@ -74,8 +74,8 @@
     </ul>
     </div>
 </div>
-    
-   
+
+
 
 
 
